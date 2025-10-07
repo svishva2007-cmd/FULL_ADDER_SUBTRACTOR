@@ -44,10 +44,35 @@ Write the detailed procedure here
 
 **Program:**
 
+module fulladder (
+    input A, B, Cin,    // Inputs: A, B, Carry in / Borrow in
+    input mode,         // 0 = Addition, 1 = Subtraction
+    output Sum_Diff,    // Output: Sum or Difference
+    output Cout_Bout    // Output: Carry or Borrow
+);
+
+    wire B_xor_mode;   // B modified for subtraction
+    wire sum1, carry1, carry2;
+
+    // XOR B with mode → if mode=1, B becomes ~B (for subtraction)
+    assign B_xor_mode = B ^ mode;
+
+    // Full Adder logic
+    assign Sum_Diff = A ^ B_xor_mode ^ Cin;  
+    assign carry1   = A & B_xor_mode;
+    assign carry2   = Cin & (A ^ B_xor_mode);
+    assign Cout_Bout = carry1 | carry2;
+
+endmodule
+
+
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 
 **RTL Schematic**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cd7db544-2643-4bd8-b8df-95263c412b22" />
+
 
 **Output Timing Waveform**
 
