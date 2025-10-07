@@ -76,6 +76,9 @@ endmodule
 
 **Output Timing Waveform**
 
+<img width="1321" height="539" alt="image" src="https://github.com/user-attachments/assets/4533dbe1-cba3-4022-aa4b-fe5fcace38d9" />
+
+
 **Result:**
 
 Thus the Full Adder and Full Subtractor circuits are designed and the truth tables is verified using Quartus software.
